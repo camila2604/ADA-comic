@@ -14,3 +14,11 @@
 
 main {
   font-family: 'Roboto', sans-serif; }
+
+.input-group-text{
+  background-color: #aed2d3;
+  border: #aed2d3;}
+
+.btn{
+  background-color:#466869;
+  color:white;}
