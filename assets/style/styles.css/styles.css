@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@300;500;900&display=swap");
+* {
+  background-color: #aed2d3;
+  margin: 0;
+  padding: 0; }
+
+.title {
+  font-family: 'Bangers', cursive;
+  background-color: black;
+  color: #aed2d3;
+  font-size: 50px;
+  margin: 0; }
+
+main {
+  font-family: 'Roboto', sans-serif; }
