@@ -44,6 +44,8 @@ type Character = {
   series: string
 }
 
+
+
 const base_url: string = 'https://gateway.marvel.com';
 const api_key: string = '84d0b9f6b697a08a98c0419cce4cfb38';
 const HASH: string = '4a467ffce992bde84ba21eba59dd7d4a';
