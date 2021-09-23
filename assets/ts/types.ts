@@ -148,28 +148,3 @@ type SeriesList = {
 	items ?: SeriesSummary[],
 }
 
-
-
-// const base_url: string = 'https://gateway.marvel.com';
-// const api_key: string = '84d0b9f6b697a08a98c0419cce4cfb38';
-// const HASH: string = '4a467ffce992bde84ba21eba59dd7d4a';
-
-// fetch(`${base_url}/v1/public/comics?apikey=${api_key}&hash=${HASH}`)
-//     .then((response) =>{
-//         return response.json();
-//     }).then((rta)=>{
-//         const comics = rta.results;
-//         const table = document.getElementById('img-container');
-//         const tbody = table.getElementsByTagName('tbody')[0]
-
-//         comics.forEach(results => {
-//             const tr= document.createElement('tr');
-//             const td= document.createElement('td');
-//             const text= document.createTextNode('results.title');
-//             tr.appendChild(td);
-//             td.appendChild(text);
-//             tbody.appendChild(tr);
-
-            
-//         });
-//     })
