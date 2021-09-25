@@ -12,7 +12,7 @@ var generateCards = function (comics) {
         divCard.style.width = '12rem';
         var divTitle = document.createElement('div');
         divTitle.classList.add('card-body');
-        var title = document.createElement('h5');
+        var title = document.createElement('p');
         title.innerText = comic.title;
         var imgComic = document.createElement('img');
         imgComic.classList.add('car-img-top');

@@ -15,7 +15,7 @@ const generateCards = (comics) => {
 
         const divTitle = document.createElement('div');
         divTitle.classList.add('card-body');
-        const title = document.createElement('h5');
+        const title = document.createElement('p');
         title.innerText = comic.title;
 
         const imgComic = document.createElement('img');
