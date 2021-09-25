@@ -21,60 +21,48 @@
             <img src="assets/image/hero.jpg" class=" col-12" alt="Imagen Comics">
         </div>
 
-        <form class="row d-flex justify-content-center gx-3 gy-2 m-5">           
+        <form class="row gx-3 gy-2 align-items-center m-5" id="form-search">           
             <h3>Busqueda</h3>
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <label class="visually-hidden" for="specificSizeInputGroupUsername"></label>
                 <div class="input-group">
-                    <div class="input-group-text colour"><i class="fas fa-search"></i></div>
-                    <input type="text" class="form-control" id="specificSizeInputGroupUsername" placeholder="Ingresá tu búsqueda">
+                    <div class="input-group-text"><i class="fas fa-search"></i></div>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Ingresá tu búsqueda">
                 </div>
             </div>
 
             <div class="col-sm-3">
                 <label class="visually-hidden" for="specificSizeSelect"></label>
-                <select class="form-select" id="select_type">
+                <select class="form-select" id="type" name="type">
                     <p>TIPO</p>
                     <option value="comics">COMICS</option>
-                    <option value="personajes">PERSONAJES</option>
+                    <option value="characters">PERSONAJES</option>
                 </select>
             </div>
             
             <div class="col-sm-3">
                 <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                <select class="form-select" id="specificSizeSelect">
-                    <option value="1">A-Z</option>
-                    <option value="2">Z-A</option>
-                    <option value="2">Más nuevos</option>
-                    <option value="2">Más viejos</option>
+                <select class="form-select" id="order" name="order">
+                    <option value="title">A-Z</option>
+                    <option value="-title">Z-A</option>
+                    <option value="onsaleDate">Más nuevos</option>
+                    <option value="-onsaleDate">Más viejos</option>
                 </select>
             </div>
 
             <div class="col-auto">
-                <button type="submit" class="btn btn-colour">Buscar</button>
+                <button type="submit" class="btn" id="btn-search">Buscar</button>
             </div>
         </form>
-        <div class="row  align-items-center m-5">
-            <h3>Resultados</h3>
+        <div class="row gx-3 gy-2 align-items-center m-5">
+            <h2>RESULTADOS</h2>
             <p id='results'></p>
         </div>
-        <div class='row d-flex justify-content-center m-5' id='container-comics'>
+        <div class='row gx-3 gy-2 align-items-center m-5' id='container-comics'>
 
-        </div>
-
-        <div class="d-flex justify-content-center pb-5">
-            <button type="button" class="btn m-1"><i class="fas fa-angle-double-left"></i></button>
-            <button type="button" class="btn m-1"><i class="fas fa-angle-left"></i></button>
-            <button type="button" class="btn m-1"><i class="fas fa-angle-right"></i></button>
-            <button type="button" class="btn m-1"><i class="fas fa-angle-double-right"></i></button>
         </div>
     </main>
-
-    <footer>
-        <div class="d-flex justify-content-center footer-color p-4">Hecho con ❤️ por Cami, Euge y Aye</div>
-    </footer>
 <script src="./assets/js/bootstrap.min.js"></script>
 <script src="./assets/js/index.js"></script>
-<script src="./assets/js/filters.js"></script>
 </body>
 </html>
