@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@300;500;900&display=swap');
 $primary-color:rgb(174, 210, 211);
 *{
-  background-color: $primary-color;
   margin: 0;
   padding: 0;
 }
@@ -14,6 +13,7 @@ $primary-color:rgb(174, 210, 211);
   margin: 0;
 }
 main{
+  background-color: $primary-color;
   font-family: 'Roboto', sans-serif;
 }
 img{
@@ -23,7 +23,14 @@ img{
   background-color: $primary-color;
   border: #aed2d3;
 }
-.btn{
+.btn-colour{
   background-color:#466869;
   color:white;
+}
+.card-style:hover{
+  transition-duration:0.1s;
+  color:#466869;
+}
+.back-color{
+  background-color: black;
 }

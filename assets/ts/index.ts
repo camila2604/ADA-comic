@@ -8,12 +8,14 @@ const generateCards = (comics) => {
         const divCard = document.createElement('div');
         divCard.classList.add('card');
         divCard.classList.add('col-10');
-        divCard.classList.add('m-3')
-        divCard.style.width = '20rem';
+        divCard.classList.add('m-3');
+        divCard.classList.add('card-style')
+        divCard.style.width = '12rem';
+        
 
         const divTitle = document.createElement('div');
         divTitle.classList.add('card-body');
-        const title = document.createElement('h5');
+        const title = document.createElement('p');
         title.innerText = comic.title;
 
         const imgComic = document.createElement('img');

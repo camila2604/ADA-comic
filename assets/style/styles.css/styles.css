@@ -1,24 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@300;500;900&display=swap");
 * {
-  background-color: #aed2d3;
   margin: 0;
   padding: 0; }
-
 .title {
   font-family: 'Bangers', cursive;
   background-color: black;
   color: #aed2d3;
   font-size: 50px;
   margin: 0; }
-
 main {
+  background-color: #aed2d3;
   font-family: 'Roboto', sans-serif; }
-
 .input-group-text{
   background-color: #aed2d3;
   border: #aed2d3;}
-
-.btn{
+.btn-colour{
   background-color:#466869;
   color:white;}
+.card-style:hover{
+  transition-duration:0.1s;
+  color: #466869;}
+.footer-color{
+  background-color: black;
+  color: #466869;}
