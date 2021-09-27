@@ -17,7 +17,8 @@ main {
   border: #aed2d3;}
 .btn-colour{
   background-color:#466869;
-  color:white;}
+  color:white;
+  border-radius: 3px;}
 .card-style:hover{
   transition-duration:0.1s;
   color: #466869;}

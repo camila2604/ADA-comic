@@ -16,9 +16,6 @@ main{
   background-color: $primary-color;
   font-family: 'Roboto', sans-serif;
 }
-img{
-  width: 100%;
-}
 .input-group-text{
   background-color: $primary-color;
   border: #aed2d3;
@@ -26,11 +23,12 @@ img{
 .btn-colour{
   background-color:#466869;
   color:white;
+  border-radius: 5px;
 }
 .card-style:hover{
   transition-duration:0.1s;
   color:#466869;
 }
-.back-color{
+.footer-color{
   background-color: black;
-}
+  color: #466869;}
