@@ -69,12 +69,11 @@ var handleSearchSubmit = function (e) {
     params.set('order', order);
     window.location.href = window.location.hash + '?' + params.toString();
 };
-var handlePaginationClick = function () {
-};
 searchForm.addEventListener('submit', handleSearchSubmit);
 var selectCharacters = document.getElementById('divCharacters');
 var selectComics = document.getElementById('divComics');
 var selectType = document.getElementById('type');
+// Funcion select ocultar/mostrar
 var showSelect = function (e) {
     e.preventDefault();
     if (selectType.value === 'characters') {
@@ -87,6 +86,39 @@ var showSelect = function (e) {
     }
 };
 selectType.addEventListener('change', showSelect);
+// PAGINACION
+var btnStart = document.getElementById('btn-start');
+var btnEnd = document.getElementById('btn-end');
+var btnNext = document.getElementById('btn-next');
+var btnPrevius = document.getElementById('btn-previus');
+// const handlePaginationClick = () => {
+var nextPage = function () {
+    var params = new URLSearchParams(window.location.search);
+    var page = params.get('page');
+    if (!page) {
+        params.set('page', '2');
+    }
+    else {
+        params.set('page', page + 1);
+    }
+};
+var previusPage = function () {
+    var params = new URLSearchParams(window.location.search);
+    var page = Number(params.get('page'));
+    if (page > 1) {
+        params.set('page', page - 1);
+    }
+};
+var startPage = function () {
+    var params = new URLSearchParams(window.location.search);
+    var page = params.get('page');
+    params.set('page', '1');
+    // btnPrevius.disabled = true;
+    // btnEnd.disabled = true;
+};
+btnNext.addEventListener('click', nextPage);
+btnPrevius.addEventListener('click', previusPage);
+btnStart.addEventListener('click', startPage);
 // const search_select = () => {
 //     fetch(url)
 //     .then((response) => {

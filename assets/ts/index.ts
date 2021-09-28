@@ -88,15 +88,14 @@ const handleSearchSubmit = (e) => {
     window.location.href=window.location.hash+'?'+params.toString()
 };
 
-const handlePaginationClick = () => {
-
-}
 
 searchForm.addEventListener('submit', handleSearchSubmit);
 
 const selectCharacters = document.getElementById('divCharacters');
 const selectComics = document.getElementById('divComics');
-const selectType = document.getElementById('type');
+const selectType = <HTMLSelectElement> document.getElementById('type');
+
+// Funcion select ocultar/mostrar
 
 const showSelect = (e) => {
     e.preventDefault();
@@ -112,6 +111,45 @@ const showSelect = (e) => {
 
 selectType.addEventListener('change', showSelect);
 
+// PAGINACION
+
+const btnStart= document.getElementById('btn-start');
+const btnEnd= document.getElementById('btn-end');
+const btnNext= document.getElementById('btn-next');
+const btnPrevius= document.getElementById('btn-previus');
+
+
+// const handlePaginationClick = () => {
+    const nextPage = () => {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get('page');
+    if(!page){
+        params.set('page', '2');
+    }else{
+        params.set('page', page + 1);
+        }
+}
+
+const previusPage = () => {
+    const params = new URLSearchParams(window.location.search);
+    const page = Number(params.get('page'));
+    if(page > 1){
+        params.set('page', page - 1);
+        }
+}
+
+const startPage = () => {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get('page');
+    params.set('page', '1');  
+    // btnPrevius.disabled = true;
+    // btnEnd.disabled = true;
+}
+
+
+btnNext.addEventListener('click', nextPage);
+btnPrevius.addEventListener('click', previusPage);
+btnStart.addEventListener('click', startPage);
 
 
 // const search_select = () => {
