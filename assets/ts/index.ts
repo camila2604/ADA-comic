@@ -71,7 +71,6 @@ init();
 
 
 
-
 const searchForm = document.getElementById('form-search');
 const btnSearch = document.getElementById('btn-search');
 let url= '';
@@ -94,6 +93,26 @@ const handlePaginationClick = () => {
 }
 
 searchForm.addEventListener('submit', handleSearchSubmit);
+
+const selectCharacters = document.getElementById('divCharacters');
+const selectComics = document.getElementById('divComics');
+const selectType = document.getElementById('type');
+
+const showSelect = (e) => {
+    e.preventDefault();
+    
+    if (selectType.value === 'characters') {
+        selectComics.classList.add('d-none');
+        selectCharacters.classList.remove('d-none');
+    } else {
+        selectCharacters.classList.add('d-none');
+        selectComics.classList.remove('d-none');
+    }
+}
+
+selectType.addEventListener('change', showSelect);
+
+
 
 // const search_select = () => {
 //     fetch(url)

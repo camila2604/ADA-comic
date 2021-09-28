@@ -40,13 +40,23 @@
                 </select>
             </div>
             
-            <div class="col-sm-3">
+            <!-- SELECT COMICS -->
+            <div class="col-sm-3" id="divComics">
                 <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                <select class="form-select" id="order" name="order">
+                <select class="form-select" id="orderComics" name="orderComics">
                     <option value="title">A-Z</option>
                     <option value="-title">Z-A</option>
                     <option value="onsaleDate">Más nuevos</option>
                     <option value="-onsaleDate">Más viejos</option>
+                </select>
+            </div>
+
+            <!-- SELECT CHARACTERS  -->
+            <div class="col-sm-3 d-none" id="divCharacters">
+                <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+                <select class="form-select" id="orderCharacters" name="orderCharacters">
+                    <option value="name">A-Z</option>
+                    <option value="-name">Z-A</option>
                 </select>
             </div>
 

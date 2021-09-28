@@ -72,6 +72,21 @@ var handleSearchSubmit = function (e) {
 var handlePaginationClick = function () {
 };
 searchForm.addEventListener('submit', handleSearchSubmit);
+var selectCharacters = document.getElementById('divCharacters');
+var selectComics = document.getElementById('divComics');
+var selectType = document.getElementById('type');
+var showSelect = function (e) {
+    e.preventDefault();
+    if (selectType.value === 'characters') {
+        selectComics.classList.add('d-none');
+        selectCharacters.classList.remove('d-none');
+    }
+    else {
+        selectCharacters.classList.add('d-none');
+        selectComics.classList.remove('d-none');
+    }
+};
+selectType.addEventListener('change', showSelect);
 // const search_select = () => {
 //     fetch(url)
 //     .then((response) => {
