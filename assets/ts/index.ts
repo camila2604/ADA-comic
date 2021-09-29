@@ -34,7 +34,7 @@ const generateCards = (comics) => {
 // &${searchKey}=${s}
 const fetchData = (type, s, order) => {
 
-    let url = `${base_url}${type}?apikey=${api_key}&hash=${HASH}&orderBy=${order}`;
+    let url = `${base_url}${type}?apikey=${api_key}&hash=${HASH}`;
 
     if(s) {
         if(type === 'comics') {
@@ -43,6 +43,10 @@ const fetchData = (type, s, order) => {
             url += `&name=${s}`;
         }
     }
+
+    url += order ? `&orderBy=${order}` : ''
+
+    console.log(url)
 
     fetch(url)
         .then((response) =>{
@@ -65,7 +69,7 @@ const init = () => {
     const search = params.get('s');
     const type = params.get('type');
     const order = params.get('order');
-    fetchData(type, search, order);
+    fetchData(type || 'comics', search, order);
     }
 init();
 
@@ -84,7 +88,7 @@ const handleSearchSubmit = (e) => {
     const params = new URLSearchParams(window.location.search);
     params.set('s', search);
     params.set('type', type);
-    params.set('order', order);
+    params.set('orderBy', order);
     window.location.href=window.location.hash+'?'+params.toString()
 };
 
@@ -99,14 +103,33 @@ const selectType = <HTMLSelectElement> document.getElementById('type');
 
 const showSelect = (e) => {
     e.preventDefault();
+
+    const options = <HTMLSelectElement> document.getElementsByTagName('option');
+
+    console.log(options);
+
+    options.map(element => {
+        if(element.dataset.type === 'character') {
+            selectComics.classList.add('d-none');
+            selectCharacters.classList.remove('d-none');
+        } else {
+            selectCharacters.classList.add('d-none');
+            selectComics.classList.remove('d-none');
+        }
+    });
     
-    if (selectType.value === 'characters') {
-        selectComics.classList.add('d-none');
-        selectCharacters.classList.remove('d-none');
-    } else {
-        selectCharacters.classList.add('d-none');
-        selectComics.classList.remove('d-none');
-    }
+    // if (selectType.value === 'characters') {
+    //     selectComics.classList.add('d-none');
+    //     selectComics.setAttribute('disabled', 'disabled');
+    //     selectCharacters.classList.remove('d-none');
+    //     selectCharacters.removeAttribute('disabled')
+    // } else {
+    //     selectCharacters.classList.add('d-none');
+    //     selectCharacters.setAttribute('disabled', 'disabled');
+    //     selectComics.classList.remove('d-none');
+    //     selectComics.removeAttribute('disabled');
+
+    // }
 }
 
 selectType.addEventListener('change', showSelect);
@@ -128,6 +151,7 @@ const btnPrevius= document.getElementById('btn-previus');
     }else{
         params.set('page', page + 1);
         }
+        console.log('hola')
 }
 
 const previusPage = () => {
@@ -152,56 +176,3 @@ btnPrevius.addEventListener('click', previusPage);
 btnStart.addEventListener('click', startPage);
 
 
-// const search_select = () => {
-//     fetch(url)
-//     .then((response) => {
-//         return response.json()
-//     })
-//     .then(rta => {
-//         const comics = rta.data.results
-//         generateCards(comics);
-//     });
-// }
-
-// const search_select = () => {
-//     fetch(`${base_url}${type}&apikey=${api_key}&hash=${HASH}&${search}&${order}`);
-//     .then((response) => {
-//         return response.json()
-//     })
-//     .then(rta => {
-//         console.log(rta);
-//         const comics = rta.data.results
-//         generateCards(comics);
-//     });
-// } 
-
-// selectType.addEventListener('change', search_select)
-
-
-
-
-
-// const search_select = () => {
-//     if (type === 'comics') {
-//         fetch(`${base_url}/v1/public/comics?&apikey=${api_key}&hash=${HASH}`)
-//         .then((response) => {
-//             return response.json()
-//         })
-//         .then(rta => {
-//             console.log(rta);
-//             const comics = rta.data.results
-//             generateCards(comics);
-//         });
-//     } else if (type === 'personajes') {
-//         fetch(`${base_url}/v1/public/characters?&apikey=${api_key}&hash=${HASH}`)
-//     .then((response) => {
-//     return response.json()
-//     })
-//     .then(rta => {
-//         const comics = rta.data.results
-//         generateCards(comics);
-//     })
-//     }
-// }
-
-// selectType.addEventListener('change', search_select)

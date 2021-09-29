@@ -43,22 +43,24 @@
             <!-- SELECT COMICS -->
             <div class="col-sm-3" id="divComics">
                 <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                <select class="form-select" id="orderComics" name="orderComics">
-                    <option value="title">A-Z</option>
-                    <option value="-title">Z-A</option>
-                    <option value="onsaleDate">Más nuevos</option>
-                    <option value="-onsaleDate">Más viejos</option>
+                <select class="form-select" id="order" name="order">
+                    <option value="title"  data-type="comics">A-Z</option>
+                    <option value="-title" data-type="comics">Z-A</option>
+                    <option value="onsaleDate" data-type="comics">Más nuevos</option>
+                    <option value="-onsaleDate" data-type="comics">Más viejos</option>
+
+                    <option value="name" data-type="character">A-Z</option>
+                    <option value="-name" data-type="character">Z-A</option>
                 </select>
             </div>
 
             <!-- SELECT CHARACTERS  -->
-            <div class="col-sm-3 d-none" id="divCharacters">
+            <!-- <div class="col-sm-3 d-none" id="divCharacters">
                 <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                <select class="form-select" id="orderCharacters" name="orderCharacters">
-                    <option value="name">A-Z</option>
-                    <option value="-name">Z-A</option>
+                <select class="form-select" id="orderCharacters" name="order">
+                    
                 </select>
-            </div>
+            </div> -->
 
             <div class="col-auto">
                 <button type="submit" class="btn-colour p-1" id="btn-search">Buscar</button>

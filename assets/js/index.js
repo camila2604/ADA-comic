@@ -25,7 +25,7 @@ var generateCards = function (comics) {
 };
 // &${searchKey}=${s}
 var fetchData = function (type, s, order) {
-    var url = "" + base_url + type + "?apikey=" + api_key + "&hash=" + HASH + "&orderBy=" + order;
+    var url = "" + base_url + type + "?apikey=" + api_key + "&hash=" + HASH;
     if (s) {
         if (type === 'comics') {
             url += "&title=" + s;
@@ -34,6 +34,8 @@ var fetchData = function (type, s, order) {
             url += "&name=" + s;
         }
     }
+    url += order ? "&orderBy=" + order : '';
+    console.log(url);
     fetch(url)
         .then(function (response) {
         return response.json();
@@ -52,7 +54,7 @@ var init = function () {
     var search = params.get('s');
     var type = params.get('type');
     var order = params.get('order');
-    fetchData(type, search, order);
+    fetchData(type || 'comics', search, order);
 };
 init();
 var searchForm = document.getElementById('form-search');
@@ -66,7 +68,7 @@ var handleSearchSubmit = function (e) {
     var params = new URLSearchParams(window.location.search);
     params.set('s', search);
     params.set('type', type);
-    params.set('order', order);
+    params.set('orderBy', order);
     window.location.href = window.location.hash + '?' + params.toString();
 };
 searchForm.addEventListener('submit', handleSearchSubmit);
@@ -76,14 +78,29 @@ var selectType = document.getElementById('type');
 // Funcion select ocultar/mostrar
 var showSelect = function (e) {
     e.preventDefault();
-    if (selectType.value === 'characters') {
-        selectComics.classList.add('d-none');
-        selectCharacters.classList.remove('d-none');
-    }
-    else {
-        selectCharacters.classList.add('d-none');
-        selectComics.classList.remove('d-none');
-    }
+    var options = document.getElementsByTagName('option');
+    console.log(options);
+    options.map(function (element) {
+        if (element.dataset.type === 'character') {
+            selectComics.classList.add('d-none');
+            selectCharacters.classList.remove('d-none');
+        }
+        else {
+            selectCharacters.classList.add('d-none');
+            selectComics.classList.remove('d-none');
+        }
+    });
+    // if (selectType.value === 'characters') {
+    //     selectComics.classList.add('d-none');
+    //     selectComics.setAttribute('disabled', 'disabled');
+    //     selectCharacters.classList.remove('d-none');
+    //     selectCharacters.removeAttribute('disabled')
+    // } else {
+    //     selectCharacters.classList.add('d-none');
+    //     selectCharacters.setAttribute('disabled', 'disabled');
+    //     selectComics.classList.remove('d-none');
+    //     selectComics.removeAttribute('disabled');
+    // }
 };
 selectType.addEventListener('change', showSelect);
 // PAGINACION
@@ -101,6 +118,7 @@ var nextPage = function () {
     else {
         params.set('page', page + 1);
     }
+    console.log('hola');
 };
 var previusPage = function () {
     var params = new URLSearchParams(window.location.search);
@@ -119,48 +137,3 @@ var startPage = function () {
 btnNext.addEventListener('click', nextPage);
 btnPrevius.addEventListener('click', previusPage);
 btnStart.addEventListener('click', startPage);
-// const search_select = () => {
-//     fetch(url)
-//     .then((response) => {
-//         return response.json()
-//     })
-//     .then(rta => {
-//         const comics = rta.data.results
-//         generateCards(comics);
-//     });
-// }
-// const search_select = () => {
-//     fetch(`${base_url}${type}&apikey=${api_key}&hash=${HASH}&${search}&${order}`);
-//     .then((response) => {
-//         return response.json()
-//     })
-//     .then(rta => {
-//         console.log(rta);
-//         const comics = rta.data.results
-//         generateCards(comics);
-//     });
-// } 
-// selectType.addEventListener('change', search_select)
-// const search_select = () => {
-//     if (type === 'comics') {
-//         fetch(`${base_url}/v1/public/comics?&apikey=${api_key}&hash=${HASH}`)
-//         .then((response) => {
-//             return response.json()
-//         })
-//         .then(rta => {
-//             console.log(rta);
-//             const comics = rta.data.results
-//             generateCards(comics);
-//         });
-//     } else if (type === 'personajes') {
-//         fetch(`${base_url}/v1/public/characters?&apikey=${api_key}&hash=${HASH}`)
-//     .then((response) => {
-//     return response.json()
-//     })
-//     .then(rta => {
-//         const comics = rta.data.results
-//         generateCards(comics);
-//     })
-//     }
-// }
-// selectType.addEventListener('change', search_select)
